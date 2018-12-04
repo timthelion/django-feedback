@@ -1,4 +1,5 @@
 {% load i18n %}
+{% load captcha %}
 <div id="feedback_drop" class="hiding"></div>
 <div id="feedback_popup" class="hiding">
     <form class="feedback" action="/feedback/ajax{{ request.path }}" method="POST">
@@ -15,6 +16,9 @@
         <div class="text error"> </div>
         <label for="text">{% trans "message" %}</label>
             <textarea name="text" class="messageinput"></textarea>
+        {% block captcha %}
+        {% captcha %}
+        {% endblock %}
         <div class="buttons">
             <button class="feedback_submit_button">{% trans "Send" %}</button>
         </div>

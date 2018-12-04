@@ -19,7 +19,7 @@ user to fill.
 
     <!-- in header block -->
     {% include "feedback/header.html" %}
-    
+
     <!-- in body block -->
     {% include "feedback/button.html" %}
 
@@ -28,7 +28,7 @@ user to fill.
     <!-- in body block -->
     {% include "feedback/feedback.html" %}
     <div class="feedback_button"/>
-   
+
 
 + All feedback can be seen in the Django admin interface
 
@@ -37,3 +37,10 @@ user to fill.
 + Feedback can optionally be emailed to you as well, as it is submitted. Specify your email address in settings.py:
 
     FEEDBACK_EMAIL = "me@example.com"
+
++ Feedback can be protected with a simple text captcha by adding the following to your settings.py file::
+
+    FEEDBACK_CAPTCHAS = [
+        (_("question1"), ["answer1"]),
+        (_("question2"), ["answer2", "alternative ansnwer 2"]),
+    ]
