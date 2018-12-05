@@ -19,9 +19,7 @@ class FeedbackForm(forms.ModelForm):
        for question, answers in self.captchas:
            if self.cleaned_data['captchaquestion'] == question and self.cleaned_data['captcha'] in answers:
                return self.cleaned_data['captcha']
-       if self.captchas:
-           raise forms.ValidationError(_("Captcha incorrect"))
-       return self.cleaned_data['captcha']
+       raise forms.ValidationError(_("Captcha incorrect"))
 
     class Meta:
         model = Feedback
